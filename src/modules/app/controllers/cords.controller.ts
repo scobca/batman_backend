@@ -7,6 +7,6 @@ export class CordsController {
 
   @Get('/get')
   getCords() {
-    return this.cordsProvider.getCords();
+    return this.cordsProvider.getCords(0);
   }
 }
