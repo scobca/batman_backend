@@ -6,7 +6,7 @@ export class CordsController {
   constructor(@Inject(CordsProvider) private cordsProvider: CordsProvider) {}
 
   @Get('/get')
-  public getCords() {
-    this.cordsProvider.getCords();
+  getCords() {
+    return this.cordsProvider.getCords();
   }
 }
