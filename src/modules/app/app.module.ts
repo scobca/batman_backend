@@ -2,24 +2,18 @@ import { Module } from '@nestjs/common';
 import { AppController } from './controllers/app.controller';
 import { AppService } from './providers/app.service';
 import { SequelizeModule } from '@nestjs/sequelize';
-import { CordsModel } from './models/cords.model';
-import { CordsProvider } from './providers/cords.provider';
-import { CordsController } from './controllers/cords.controller';
+import { CordsModule } from '../cords/cords.module';
+import { dbConf } from '../../conf/db.conf';
 
 @Module({
   imports: [
     SequelizeModule.forRoot({
       dialect: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: 'root',
-      database: 'test',
-      models: [CordsModel],
+      ...dbConf,
     }),
-    SequelizeModule.forFeature([CordsModel]),
+    CordsModule,
   ],
-  controllers: [AppController, CordsController],
-  providers: [AppService, CordsProvider],
+  controllers: [AppController],
+  providers: [AppService],
 })
 export class AppModule {}
