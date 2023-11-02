@@ -4,7 +4,7 @@ const dbConf = {
   username: '',
   password: '',
   database: '',
-  autoLoadModules: true,
+  autoLoadModels: true,
 };
 
 export { dbConf };
